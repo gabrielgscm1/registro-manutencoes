@@ -13,7 +13,7 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: APP_PASSWORD
-        value: admin123
+        value: "123"
       - key: FRONTEND_URL
         sync: false
 
