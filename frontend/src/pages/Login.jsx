@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login, isAuthenticated } from '../services/api'
-import { useEffect } from 'react'
+import LoginIcon from '@mui/icons-material/Login'
+import BuildIcon from '@mui/icons-material/Build'
 
 function Login() {
   const [senha, setSenha] = useState('')
@@ -33,7 +34,7 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h1>Registro de Manutenções</h1>
+        <h1><BuildIcon sx={{ fontSize: 32, marginRight: 1, verticalAlign: 'middle' }} />Registro de Manutenções</h1>
         <p className="subtitle">Digite a senha para acessar</p>
 
         {erro && <div className="alert alert-error">{erro}</div>}
@@ -57,6 +58,7 @@ function Login() {
             className="btn btn-primary btn-block"
             disabled={loading}
           >
+            <LoginIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             {loading ? 'Entrando...' : 'Entrar'}
           </button>
         </form>

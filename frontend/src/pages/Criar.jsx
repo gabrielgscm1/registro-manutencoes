@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { criarRegistro, obterDataPadrao, listarVeiculos } from '../services/api'
+import SaveIcon from '@mui/icons-material/Save'
+import CancelIcon from '@mui/icons-material/Cancel'
+import AddIcon from '@mui/icons-material/Add'
 
 function Criar() {
   const navigate = useNavigate()
@@ -108,6 +111,7 @@ function Criar() {
             <div className="veiculo-aviso">
               <p>Nenhum veículo cadastrado.</p>
               <Link to="/veiculos" className="btn btn-primary btn-sm">
+                <AddIcon sx={{ fontSize: 16, marginRight: 0.5 }} />
                 Cadastrar Veículo
               </Link>
             </div>
@@ -210,9 +214,11 @@ function Criar() {
 
         <div className="form-actions">
           <Link to="/" className="btn btn-secondary">
+            <CancelIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             Cancelar
           </Link>
           <button type="submit" className="btn btn-primary" disabled={loading}>
+            <SaveIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             {loading ? 'Salvando...' : 'Salvar Registro'}
           </button>
         </div>

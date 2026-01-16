@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import { obterRegistro } from '../services/api'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import EditIcon from '@mui/icons-material/Edit'
 
 function Detalhes() {
   const { id } = useParams()
@@ -63,6 +65,7 @@ function Detalhes() {
       <div className="page-header">
         <h2>Detalhes do Registro</h2>
         <Link to="/historico" className="btn btn-secondary">
+          <ArrowBackIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
           Voltar
         </Link>
       </div>
@@ -137,9 +140,11 @@ function Detalhes() {
 
         <div className="detalhes-actions">
           <Link to={`/editar/${registro.id}`} className="btn btn-primary">
+            <EditIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             Editar Registro
           </Link>
           <Link to="/historico" className="btn btn-secondary">
+            <ArrowBackIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             Voltar ao Histórico
           </Link>
         </div>

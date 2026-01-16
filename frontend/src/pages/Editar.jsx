@@ -3,6 +3,8 @@ import { useNavigate, useParams, Link } from 'react-router-dom'
 import { obterRegistro, atualizarRegistro } from '../services/api'
 import CamposDinamicos from '../components/CamposDinamicos'
 import Anexos from '../components/Anexos'
+import SaveIcon from '@mui/icons-material/Save'
+import CancelIcon from '@mui/icons-material/Cancel'
 
 function Editar() {
   const { id } = useParams()
@@ -201,9 +203,11 @@ function Editar() {
 
         <div className="form-actions">
           <Link to="/" className="btn btn-secondary">
+            <CancelIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             Cancelar
           </Link>
           <button type="submit" className="btn btn-primary" disabled={saving}>
+            <SaveIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             {saving ? 'Salvando...' : 'Salvar Alterações'}
           </button>
         </div>

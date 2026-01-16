@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { listarVeiculos, criarVeiculo, atualizarVeiculo, excluirVeiculo } from '../services/api'
+import AddIcon from '@mui/icons-material/Add'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import EditIcon from '@mui/icons-material/Edit'
+import DeleteIcon from '@mui/icons-material/Delete'
+import SaveIcon from '@mui/icons-material/Save'
+import CancelIcon from '@mui/icons-material/Cancel'
 
 function Veiculos() {
   const [veiculos, setVeiculos] = useState([])
@@ -144,9 +150,11 @@ function Veiculos() {
         <h2>Veículos</h2>
         <div className="page-header-actions">
           <button className="btn btn-primary" onClick={() => abrirModal()}>
+            <AddIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             Novo Veículo
           </button>
           <Link to="/" className="btn btn-secondary">
+            <ArrowBackIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             Voltar
           </Link>
         </div>
@@ -156,6 +164,7 @@ function Veiculos() {
         <div className="empty-state">
           <p>Nenhum veículo cadastrado ainda.</p>
           <button className="btn btn-primary" onClick={() => abrirModal()}>
+            <AddIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             Cadastrar primeiro veículo
           </button>
         </div>
@@ -176,12 +185,14 @@ function Veiculos() {
                   className="btn btn-secondary btn-sm"
                   onClick={() => abrirModal(veiculo)}
                 >
+                  <EditIcon sx={{ fontSize: 16, marginRight: 0.5 }} />
                   Editar
                 </button>
                 <button
                   className="btn btn-danger btn-sm"
                   onClick={() => handleExcluir(veiculo.id)}
                 >
+                  <DeleteIcon sx={{ fontSize: 16, marginRight: 0.5 }} />
                   Excluir
                 </button>
               </div>
@@ -253,9 +264,11 @@ function Veiculos() {
 
               <div className="modal-actions">
                 <button type="button" className="btn btn-secondary" onClick={fecharModal}>
+                  <CancelIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
                   Cancelar
                 </button>
                 <button type="submit" className="btn btn-primary" disabled={salvando}>
+                  <SaveIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
                   {salvando ? 'Salvando...' : 'Salvar'}
                 </button>
               </div>

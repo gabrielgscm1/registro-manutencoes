@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { listarHistorico, exportarPDF, exportarPDFRegistro } from '../services/api'
+import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import VisibilityIcon from '@mui/icons-material/Visibility'
+import AddIcon from '@mui/icons-material/Add'
 
 function Historico() {
   const [registros, setRegistros] = useState([])
@@ -105,9 +109,11 @@ function Historico() {
             onClick={handleExportarPDF}
             disabled={exportando || registros.length === 0}
           >
+            <PictureAsPdfIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             {exportando ? 'Exportando...' : 'Exportar PDF'}
           </button>
           <Link to="/" className="btn btn-secondary">
+            <ArrowBackIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             Voltar
           </Link>
         </div>
@@ -117,6 +123,7 @@ function Historico() {
         <div className="empty-state">
           <p>Nenhuma manutenção registrada ainda.</p>
           <Link to="/criar" className="btn btn-primary">
+            <AddIcon sx={{ fontSize: 18, marginRight: 0.5 }} />
             Criar primeiro registro
           </Link>
         </div>
@@ -140,9 +147,11 @@ function Historico() {
                         onClick={() => handleExportarPDFRegistro(registro.id, registro.titulo)}
                         disabled={exportandoId === registro.id}
                       >
+                        <PictureAsPdfIcon sx={{ fontSize: 16, marginRight: 0.5 }} />
                         {exportandoId === registro.id ? 'Exportando...' : 'PDF'}
                       </button>
                       <Link to={`/detalhes/${registro.id}`} className="btn btn-secondary btn-sm">
+                        <VisibilityIcon sx={{ fontSize: 16, marginRight: 0.5 }} />
                         Ver detalhes
                       </Link>
                     </div>
