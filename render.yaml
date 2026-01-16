@@ -17,12 +17,11 @@ services:
       - key: FRONTEND_URL
         sync: false
 
-  # Frontend React
+  # Frontend React (Static Site - sem plan, usa gratuito automaticamente)
   - type: web
     name: manutencoes-frontend
     runtime: static
     rootDir: frontend
-    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
