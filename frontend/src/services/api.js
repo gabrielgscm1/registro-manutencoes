@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const API_URL = import.meta.env.VITE_API_URL || '/api'
+// URL da API - usa variável de ambiente ou URL do Render em produção
+const API_URL = import.meta.env.VITE_API_URL || 'https://manutencoes-api.onrender.com'
 
 const api = axios.create({
   baseURL: API_URL,
