@@ -59,6 +59,7 @@ app = FastAPI(
 cors_origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "https://manutencoes-frontend.onrender.com",
 ]
 
 # Adicionar origem do frontend em produção se configurada
