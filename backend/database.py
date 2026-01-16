@@ -11,8 +11,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
-# Caminho do banco de dados (mesmo da v1)
-DB_PATH = Path(__file__).parent.parent.parent / "armazenamento_informacoes" / "dados.db"
+# Caminho do banco de dados
+# Em produção (Render), usa pasta local; em desenvolvimento, usa pasta da v1
+DATA_DIR = Path(__file__).parent / "data"
+DATA_DIR.mkdir(exist_ok=True)
+DB_PATH = DATA_DIR / "dados.db"
 
 # Pasta para uploads
 UPLOADS_DIR = Path(__file__).parent / "uploads"
